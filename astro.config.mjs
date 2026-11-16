@@ -3,7 +3,6 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  // TODO: replace with the real domain before launch (used for canonical URLs + sitemap)
-  site: 'https://example.com',
+  site: 'https://www.olegcoada.com',
   integrations: [sitemap()],
 });

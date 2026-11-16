@@ -23,10 +23,12 @@ src/
   components/Seo.astro  Title, description, canonical, Open Graph, X cards
   styles/tokens.css     Design tokens: colour, type scale, spacing, radius
   styles/global.css     Reset, base typography, .container/.section/.stack
-  content.config.ts     Schemas for case studies and services
+  content.config.ts     Schemas for every content type
   content/projects/     One Markdown file per case study
   content/services/     One Markdown file per service
-  lib/content.ts        getProjects(), getFeaturedProjects(), getServices()
+  content/pages/        Page copy: home, about, offer, contact
+  content/data/         clients.json, logos.json, archive.json, faq.json
+  lib/content.ts        getProjects(), getServices(), getLogos(), getFaq() …
   assets/               Images that Astro should optimise
   pages/                Routes (index and 404 are placeholders)
 ```
@@ -34,5 +36,5 @@ src/
 ## Notes
 
 - Entries with `draft: true` show in `npm run dev` but are left out of production builds.
-- Before launch: set `site` in `astro.config.mjs` and the sitemap URL in `public/robots.txt`
-  to the real domain, and add `public/og-default.png` (1200×630).
+- Before launch: add `public/og-default.png` (1200×630).
+- See CONTENT.md for where the content came from and what still needs a decision.

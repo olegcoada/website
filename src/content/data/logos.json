@@ -1,0 +1,366 @@
+[
+  {
+    "id": "endurance",
+    "order": 1,
+    "name": "Endurance",
+    "industry": "Infrastructure investment",
+    "mono": {
+      "src": "https://framerusercontent.com/images/W8l4YXaDiFT64mZauXOCKP0WM.svg",
+      "alt": "Endurance logomark: black vertical bars forming a W"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/H3pYMTLUaracXOuicH3YlEREVEg.svg",
+      "alt": "Endurance logomark in white on red"
+    }
+  },
+  {
+    "id": "prosuna",
+    "order": 2,
+    "name": "Prosuna",
+    "industry": "GovTech",
+    "mono": {
+      "src": "https://framerusercontent.com/images/UA5a6ggPp0Orv42DZErvHWQLvI.svg",
+      "alt": "Prosuna logomark: a black interlocking ribbon"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/eJvuxrzxVGtYxlFkGSeooloKRI.svg",
+      "alt": "Prosuna logomark in orange on cream"
+    }
+  },
+  {
+    "id": "adaptional",
+    "order": 3,
+    "name": "Adaptional",
+    "industry": "Insurtech",
+    "mono": {
+      "src": "https://framerusercontent.com/images/iz90LORdiMkOMlpRUWoRkCy773I.svg",
+      "alt": "Adaptional logomark: an arrow-like A with a grey facet"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/KNVuNMmCWsM3ULyEntaFi85hnY.svg",
+      "alt": "Adaptional logomark in teal on light grey"
+    }
+  },
+  {
+    "id": "metamag",
+    "order": 4,
+    "name": "Metamag",
+    "industry": "Defense electronics",
+    "mono": {
+      "src": "https://framerusercontent.com/images/nQIxb2Fa3szmOty8hoHnasf2vc.svg",
+      "alt": "Metamag logomark: an M built from horizontal lines"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/XABeKjAIMUp2qDQ0gKXkO39GQ.svg",
+      "alt": "Metamag logomark in black over a sky-blue to cream gradient"
+    }
+  },
+  {
+    "id": "kovered",
+    "order": 5,
+    "name": "Kovered",
+    "industry": "Insurance",
+    "mono": {
+      "src": "https://framerusercontent.com/images/5aRHNygGPyUkK8zqDVEm0K7cdw.svg",
+      "alt": "Kovered logomark: an angular K"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/fbm59R7EqQOfZswKmFVwhZ40v7g.svg",
+      "alt": "Kovered logomark in a cyan-to-purple gradient on dark navy"
+    }
+  },
+  {
+    "id": "borderaudit",
+    "order": 6,
+    "name": "BorderAudit",
+    "industry": "Customs compliance",
+    "mono": {
+      "src": "https://framerusercontent.com/images/WWAhH2C54MxhgRHpPCpRw6Y7hN4.svg",
+      "alt": "BorderAudit logomark: a blocky B"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/UAt1TG10iMBYUEf6bda0Ti2dKg.svg",
+      "alt": "BorderAudit logomark in a violet-blue gradient on black"
+    }
+  },
+  {
+    "id": "aizen",
+    "order": 7,
+    "name": "Aizen",
+    "industry": "Fintech",
+    "mono": {
+      "src": "https://framerusercontent.com/images/QK5gnRd2FLvvtWMTmScmI2BOrqs.svg",
+      "alt": "Aizen logomark: a triangle made of three folded pieces"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/GcdceUVa8n7m5OdGWPClQMche1c.svg",
+      "alt": "Aizen logomark in white on blue"
+    }
+  },
+  {
+    "id": "tapline",
+    "order": 8,
+    "name": "Tapline",
+    "industry": "Alternative finance",
+    "mono": {
+      "src": "https://framerusercontent.com/images/GDEvSjaqylR4UtcpkTuc2h0lQPE.svg",
+      "alt": "Tapline logomark: two offset bracket shapes"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/aGcwYw5w6FhECcB1nTHZ6G2gwpY.svg",
+      "alt": "Tapline logomark in blue on dark navy"
+    }
+  },
+  {
+    "id": "valkyrie",
+    "order": 9,
+    "name": "Valkyrie",
+    "industry": "Dental diagnostics",
+    "mono": {
+      "src": "https://framerusercontent.com/images/3lbAMXoMzOvWevax6IfWDw2yLvM.svg",
+      "alt": "Valkyrie logomark: a line-drawn W"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/0qqDtLGzhYFd5XgWjNRLRaccjoY.svg",
+      "alt": "Valkyrie logomark in violet on black"
+    }
+  },
+  {
+    "id": "thoughtful",
+    "order": 10,
+    "name": "Thoughtful",
+    "industry": "Healthcare AI",
+    "mono": {
+      "src": "https://framerusercontent.com/images/LL5DHarucQ7xwFdpiEU0Tunecc.svg",
+      "alt": "Thoughtful logomark: two crossing bars"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/nB0p2dqdNyfz21w9tpy3HEeEU.svg",
+      "alt": "Thoughtful logomark in an orange-to-purple gradient on white"
+    }
+  },
+  {
+    "id": "lumian",
+    "order": 11,
+    "name": "Lumian",
+    "industry": "E-commerce",
+    "mono": {
+      "src": "https://framerusercontent.com/images/WpucZzqwEPeXdRU8nfCmkhaCP4.svg",
+      "alt": "Lumian logomark: black triangle with grey gradient facets"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/XvvquMqYS4DiAfM5Q1mOvihT4UI.svg",
+      "alt": "Lumian logomark: black triangle with a pink-to-orange facet on white"
+    }
+  },
+  {
+    "id": "hockeystack",
+    "order": 12,
+    "name": "HockeyStack",
+    "industry": "B2B analytics",
+    "mono": {
+      "src": "https://framerusercontent.com/images/uyJcbvH6TFuYJvI7wFRJzc5L7I.svg",
+      "alt": "HockeyStack logomark: a hockey stick"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/E8HvN0sKvqBd2NLnWIYtyqtMdMg.svg",
+      "alt": "HockeyStack logomark in white on charcoal"
+    }
+  },
+  {
+    "id": "goodwares",
+    "order": 13,
+    "name": "GoodWares",
+    "industry": "E-commerce AI",
+    "mono": {
+      "src": "https://framerusercontent.com/images/5DUF8E8DHvghqy1xM92Zk1uHlA.svg",
+      "alt": "GoodWares logomark: a hexagonal G with a soft white glow"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/cqt3ngn8UBRoIBUKdieroJAiJk.svg",
+      "alt": "GoodWares logomark: blue-to-violet hexagonal G on navy"
+    }
+  },
+  {
+    "id": "onestate",
+    "order": 14,
+    "name": "OneState",
+    "industry": "Online gaming",
+    "mono": {
+      "src": "https://framerusercontent.com/images/9W8pj7BzuH9Eb7BB1OGVvPm0C0.svg",
+      "alt": "OneState logomark: a dollar sign split into blocks"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/0246HREt683ALcdnlZcMRh9Xfc.svg",
+      "alt": "OneState dollar logomark in black on yellow"
+    }
+  },
+  {
+    "id": "ultramassive",
+    "order": 15,
+    "name": "Ultramassive",
+    "industry": "Software",
+    "mono": {
+      "src": "https://framerusercontent.com/images/78z4s3dEGYOEepaj7Ms57gdNYnI.svg",
+      "alt": "Ultramassive logomark: a flower made of six hexagons"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/LEukJzR2Eul42iNKFCgoczFPGM.svg",
+      "alt": "Ultramassive logomark in white on red-orange"
+    }
+  },
+  {
+    "id": "tradesage",
+    "order": 16,
+    "name": "TradeSage",
+    "industry": "Trading",
+    "mono": {
+      "src": "https://framerusercontent.com/images/g8hOMUlmUx1UI0wyio9EiGssng.svg",
+      "alt": "TradeSage logomark: a wizard hat with a sparkle"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/899jtKHfvJ7Lewrk11Ruq7FIQ0.jpg",
+      "alt": "TradeSage logomark in white over a blue-green light burst on black"
+    }
+  },
+  {
+    "id": "akron",
+    "order": 17,
+    "name": "Akron",
+    "industry": "Crypto",
+    "mono": {
+      "src": "https://framerusercontent.com/images/VfLoJVaQ8EniNdq2Cs6kl8LDAlk.svg",
+      "alt": "Akron logomark: an A with an arrow cut-out"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/P3pzw9SEBAS7FahTooisJCwWQ.svg",
+      "alt": "Akron logomark in black on a pink-to-peach gradient"
+    }
+  },
+  {
+    "id": "layer-labs",
+    "order": 18,
+    "name": "Layer Labs",
+    "industry": "Web3",
+    "mono": {
+      "src": "https://framerusercontent.com/images/IdzTo9gesKSWYCVZhK8AvIq66w0.svg",
+      "alt": "Layer Labs logomark: a rounded U shaped like a flask"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/MEzpxYZK5jHJvQrXKzbdJQ8Kbok.svg",
+      "alt": "Layer Labs logomark in a green-to-blue gradient on black"
+    }
+  },
+  {
+    "id": "choiceform",
+    "order": 19,
+    "name": "Choiceform",
+    "industry": "Market research",
+    "mono": {
+      "src": "https://framerusercontent.com/images/jNHoJx9wLtw73CrAreroMX0NQEQ.svg",
+      "alt": "Choiceform logomark: a black check-mark shape"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/sTSmBH7sc4PTglIg5nj9cbN14.svg",
+      "alt": "Choiceform logomark in a blue gradient on black"
+    }
+  },
+  {
+    "id": "luppa",
+    "order": 20,
+    "name": "Luppa",
+    "industry": "Martech",
+    "mono": {
+      "src": "https://framerusercontent.com/images/2EM8KqbFeh8OpK8g3Ks8Hl5y2z8.svg",
+      "alt": "Luppa logomark: a husky head"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/8dLeR48VxQnHYkXoIMbKdorIVs.svg",
+      "alt": "Luppa husky logomark in lilac on dark navy"
+    }
+  },
+  {
+    "id": "rulnx",
+    "order": 21,
+    "name": "Rulnx",
+    "industry": "Activewear",
+    "mono": {
+      "src": "https://framerusercontent.com/images/323YImAhm1Xw9s5tW2cR8PJCk.svg",
+      "alt": "Rulnx logomark: a paper plane arrow"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/rY6oWnm2t5O3FgmvxZpN4UyOI.svg",
+      "alt": "Rulnx logomark in black on blue"
+    }
+  },
+  {
+    "id": "amplitude-electrical-group",
+    "order": 22,
+    "name": "Amplitude Electrical Group",
+    "industry": "Electrical services",
+    "mono": {
+      "src": "https://framerusercontent.com/images/ao0NHhDmSQyzQxzs6cookc1y1U.svg",
+      "alt": "Amplitude Electrical Group logomark: a curved A of three stacked arcs in black and two greys"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/3eDZRz1aFWTOw4GHUwVDAx7uY.svg",
+      "alt": "Amplitude Electrical Group logomark in green on white"
+    }
+  },
+  {
+    "id": "acosta-institute",
+    "order": 23,
+    "name": "Acosta Institute",
+    "industry": "Education",
+    "mono": {
+      "src": "https://framerusercontent.com/images/5xrGLa4SlD0jUnLoG3jnHsfIMog.svg",
+      "alt": "Acosta Institute logomark: a trefoil of rounded loops"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/I4UuQtrmWA0Qro29cvspr4DyYsM.svg",
+      "alt": "Acosta Institute logomark in a pink-orange gradient on deep purple"
+    }
+  },
+  {
+    "id": "farmer-law-pc",
+    "order": 24,
+    "name": "Farmer Law PC",
+    "industry": "Immigration law",
+    "mono": {
+      "src": "https://framerusercontent.com/images/pSy2w4IwfrsUq1MZuXdwk01Mmo.svg",
+      "alt": "Farmer Law PC logomark: a feather forming an F"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/KNUcUAHCM4BljlOLvNrBWWZrtG0.svg",
+      "alt": "Farmer Law PC feather logomark in cream on brown"
+    }
+  },
+  {
+    "id": "chillbase",
+    "order": 25,
+    "name": "ChillBase",
+    "industry": "Game studio",
+    "mono": {
+      "src": "https://framerusercontent.com/images/chLqpsCBfpMKIsK12RmkCtug.svg",
+      "alt": "ChillBase logomark: a notched B"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/cFxOBLg1IPVt4hj8BvQaqh44zso.svg",
+      "alt": "ChillBase logomark in red on black"
+    }
+  },
+  {
+    "id": "cooled-collective",
+    "order": 26,
+    "name": "Cooled Collective",
+    "industry": "Automotive art",
+    "mono": {
+      "src": "https://framerusercontent.com/images/AkZNUQjzmqgdqGFMdwDwPDQPLw.svg",
+      "alt": "Cooled Collective logomark: a C with speed lines"
+    },
+    "color": {
+      "src": "https://framerusercontent.com/images/VUNhOxyxkjm3ctpy78TISFUlBY.svg",
+      "alt": "Cooled Collective logomark in an orange-to-purple gradient on navy"
+    }
+  }
+]

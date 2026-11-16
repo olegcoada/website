@@ -1,22 +1,28 @@
 ---
-// Temporary home page: proves the layout, SEO and collections are wired up.
-// The real structure gets built here once it's chosen.
+// Temporary content inventory page: proves every collection loads.
+// Not a design. The real structure gets built here once it's chosen.
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { getProjects, getServices } from '@/lib/content';
+import { getCollection } from 'astro:content';
+import { getProjects, getServices, getClients, getLogos, getArchive, getFaq } from '@/lib/content';
+import { site } from '@/site.config';
 
-const projects = await getProjects();
-const services = await getServices();
+const [projects, services, clients, logos, archive, faq, pages] = await Promise.all([
+  getProjects(), getServices(), getClients(), getLogos(), getArchive(), getFaq(), getCollection('pages'),
+]);
 ---
 
-<BaseLayout>
+<BaseLayout noindex>
   <section class="section container stack">
-    <h1>Oleg Coada</h1>
-    <p>New site foundation. Structure and design come next.</p>
-  </section>
-  <section class="section container stack">
-    <h2>Case studies ({projects.length})</h2>
-    <ul>{projects.map((p) => <li>{p.data.title} — {p.data.client}</li>)}</ul>
-    <h2>Services ({services.length})</h2>
-    <ul>{services.map((s) => <li>{s.data.title}</li>)}</ul>
+    <h1>{site.tagline}</h1>
+    <p>Content inventory. Structure and design come next.</p>
+    <ul>
+      <li>Case studies: {projects.map((p) => p.data.title).join(', ')}</li>
+      <li>Services: {services.map((s) => `${s.data.title} (from ${s.data.priceFrom})`).join(', ')}</li>
+      <li>Page copy: {pages.map((p) => p.data.title).join(', ')}</li>
+      <li>Track record: {clients.length} clients</li>
+      <li>Logo wall: {logos.length} marks</li>
+      <li>Archive: {archive.length} items</li>
+      <li>FAQ: {faq.length} questions</li>
+    </ul>
   </section>
 </BaseLayout>

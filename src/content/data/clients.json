@@ -1,0 +1,8 @@
+[
+  { "id": "endurance", "order": 1, "name": "Endurance", "line": "Identity for the open marketplace for infrastructure, backed by a16z speedrun" },
+  { "id": "adaptional", "order": 2, "name": "Adaptional", "line": "Identity for an AI claims platform built by early xAI engineers, used by insurance leaders like Aon" },
+  { "id": "prosuna", "order": 3, "name": "Prosuna", "line": "Identity for an open platform for digital administrative processes, built for German public administration" },
+  { "id": "lumian", "order": 4, "name": "Lumian", "line": "Launch identity for an AI-native Amazon agency that launched with $3M from Flybridge, Bowery Capital, and Fika Ventures" },
+  { "id": "thoughtful-ai", "order": 5, "name": "Thoughtful AI", "line": "Identity update ahead of their $20M raise" },
+  { "id": "jasper-ai", "order": 6, "name": "Jasper AI", "line": "Brand refresh in 2021, ahead of the company’s rise to unicorn status" }
+]
