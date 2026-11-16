@@ -1,0 +1,22 @@
+---
+// Renders one gallery item. Remote Framer URLs get a size hint so the CDN
+// serves a smaller file; local paths pass through unchanged.
+export interface Props {
+  type: 'image' | 'video';
+  src: string;
+  alt?: string;
+  width?: number; // target render width in px
+  class?: string;
+  eager?: boolean;
+}
+const { type, src, alt = '', width = 1200, class: cls, eager = false } = Astro.props;
+const sized = src.includes('framerusercontent.com/images/') && !src.endsWith('.svg')
+  ? `${src}?scale-down-to=${width}`
+  : src;
+---
+
+{type === 'video' ? (
+  <video class={cls} src={src} autoplay muted loop playsinline preload="metadata" aria-label={alt || undefined}></video>
+) : (
+  <img class={cls} src={sized} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+)}

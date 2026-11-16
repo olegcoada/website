@@ -1,0 +1,39 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { site } from '@/site.config';
+interface Props { offer: CollectionEntry<'pages'> }
+const steps = Astro.props.offer.data.sections.find((s) => s.heading === 'How to start')?.items ?? [];
+const fit = Astro.props.offer.data.sections.find((s) => s.heading === 'Who this is for')?.items ?? [];
+---
+
+<section class="section container" aria-labelledby="process-title">
+  <div class="section-head">
+    <p class="label">How to start</p>
+    <h2 id="process-title">Four steps from first message to <span class="serif">agreed scope.</span></h2>
+  </div>
+  <ol class="steps">
+    {steps.map((s, i) => (
+      <li>
+        <span class="label">Step {i + 1}</span>
+        <p>{s}</p>
+      </li>
+    ))}
+  </ol>
+  <div class="fit">
+    <p class="label">Who this is for</p>
+    <ul>{fit.map((f) => <li>{f}</li>)}</ul>
+    <a class="btn" href={site.cta.href}><span class="dot" aria-hidden="true"></span>{site.cta.label}</a>
+  </div>
+</section>
+
+<style>
+  .steps { list-style: none; padding: 0; display: grid; gap: var(--space-3); }
+  @media (min-width: 700px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1100px) { .steps { grid-template-columns: repeat(4, 1fr); } }
+  .steps li { display: grid; gap: var(--space-12); align-content: space-between; min-height: 12rem; padding: var(--space-6); background: var(--color-surface); border-radius: var(--radius-md); }
+  .steps p { font-size: var(--text-lg); line-height: var(--leading-snug); letter-spacing: var(--tracking-tight); }
+  .fit { display: grid; gap: var(--space-6); margin-top: var(--space-16); }
+  @media (min-width: 900px) { .fit { grid-template-columns: 1fr 2fr auto; align-items: start; } }
+  .fit ul { padding-left: 1.1em; display: grid; gap: var(--space-2); }
+  .fit li::marker { color: var(--color-accent); }
+</style>

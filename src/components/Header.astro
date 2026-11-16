@@ -1,0 +1,46 @@
+---
+import { site } from '@/site.config';
+const nav = [
+  { label: 'Work', href: '#work' },
+  { label: 'Offer', href: '#offer' },
+  { label: 'About', href: '#about' },
+  { label: 'FAQ', href: '#faq' },
+];
+---
+
+<header class="header">
+  {site.announcement && (
+    <a class="announce" href={site.announcement.href}>
+      <span class="announce__dot" aria-hidden="true"></span>
+      <span>{site.announcement.text}</span>
+      <span aria-hidden="true">→</span>
+    </a>
+  )}
+  <div class="bar container">
+    <a class="wordmark" href="/">{site.name}</a>
+    <nav aria-label="Main">
+      <ul>{nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}</ul>
+    </nav>
+    <a class="btn" href={site.cta.href}><span class="dot" aria-hidden="true"></span>{site.cta.label}</a>
+  </div>
+</header>
+
+<style>
+  .header { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--color-bg) 88%, transparent); backdrop-filter: blur(12px); }
+  .announce {
+    display: flex; justify-content: center; align-items: center; gap: var(--space-2);
+    padding: var(--space-2) var(--gutter);
+    background: var(--color-ink-panel); color: var(--color-text-inverse);
+    font-size: var(--text-xs); text-decoration: none; text-align: center;
+  }
+  .announce:hover span:last-child { transform: translateX(3px); }
+  .announce span:last-child { transition: transform var(--duration) var(--ease-out); }
+  .announce__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-accent); flex: none; }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); padding-block: var(--space-4); border-bottom: 1px solid var(--color-border); }
+  .wordmark { font-weight: var(--weight-medium); letter-spacing: var(--tracking-tight); text-decoration: none; font-size: var(--text-lg); }
+  nav ul { display: none; list-style: none; padding: 0; gap: var(--space-8); }
+  nav a { text-decoration: none; font-size: var(--text-sm); color: var(--color-text-muted); }
+  nav a:hover { color: var(--color-text); }
+  @media (min-width: 800px) { nav ul { display: flex; } }
+  @media (max-width: 420px) { .bar .btn { padding: 0.7em 1em; } }
+</style>

@@ -1,0 +1,55 @@
+---
+import Media from './Media.astro';
+import { site } from '@/site.config';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props { projects: CollectionEntry<'projects'>[] }
+const { projects } = Astro.props;
+// One strong image per case study for the opening strip.
+const picks = projects.map((p) => ({ slug: p.id, title: p.data.title, media: p.data.gallery.find((g) => g.type === 'image')! }));
+---
+
+<section class="hero">
+  <div class="container">
+    <p class="label hero__kicker">Independent brand designer · {site.location}</p>
+    <h1 class="hero__title">
+      Brand identities for AI and tech companies selling into <span class="serif">serious markets.</span>
+    </h1>
+    <div class="hero__foot">
+      <p class="hero__lede">I build the brand your company needs to look like the company it’s becoming.</p>
+      <div class="hero__cta">
+        <a class="btn" href={site.cta.href}><span class="dot" aria-hidden="true"></span>{site.cta.label}</a>
+        <p class="label">From $12,000 · 4–6 weeks · Reply within 24h</p>
+      </div>
+    </div>
+  </div>
+  <div class="strip container">
+    {picks.map((p, i) => (
+      <a class="strip__item" href={`#${p.slug}`}>
+        <Media type="image" src={p.media.src} alt={p.media.alt} width={900} eager={i < 2} />
+        <span class="label">{String(i + 1).padStart(2, '0')} {p.title}</span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .hero { padding-top: var(--space-16); padding-bottom: var(--space-16); }
+  .hero__kicker { margin-bottom: var(--space-6); }
+  .hero__title {
+    font-size: var(--text-hero); line-height: 0.95; letter-spacing: var(--tracking-tighter);
+    font-weight: var(--weight-medium); max-width: 14ch;
+  }
+  .hero__title .serif { letter-spacing: -0.02em; }
+  .hero__foot { display: grid; gap: var(--space-8); margin-top: var(--space-12); align-items: end; }
+  .hero__lede { font-size: var(--text-xl); line-height: var(--leading-snug); max-width: 26ch; letter-spacing: var(--tracking-tight); }
+  .hero__cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-6); }
+  @media (min-width: 900px) {
+    .hero__foot { grid-template-columns: 1fr auto; }
+  }
+  .strip { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3); margin-top: var(--space-16); }
+  @media (min-width: 900px) { .strip { grid-template-columns: repeat(4, 1fr); } }
+  .strip__item { display: grid; gap: var(--space-2); text-decoration: none; }
+  .strip__item :global(img) { aspect-ratio: 4 / 5; object-fit: cover; width: 100%; border-radius: var(--radius-sm); background: var(--color-surface); transition: transform 600ms var(--ease-out); }
+  .strip__item:hover :global(img) { transform: scale(0.98); }
+</style>

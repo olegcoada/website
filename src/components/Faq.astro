@@ -1,0 +1,39 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props { faq: CollectionEntry<'faq'>[]; limit?: number }
+const { faq, limit = 8 } = Astro.props;
+// Turn plain email addresses and the inquire URL into links.
+const linkify = (s: string) =>
+  s.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]!)
+   .replace(/([\w.+-]+@[\w-]+\.[a-z]{2,})/g, '<a href="mailto:$1">$1</a>')
+   .replace(/olegcoada\.com\/inquire/g, '<a href="/inquire">olegcoada.com/inquire</a>');
+---
+
+<section class="section container" id="faq" aria-labelledby="faq-title">
+  <div class="section-head">
+    <p class="label">FAQ</p>
+    <h2 id="faq-title">Questions founders <span class="serif">usually ask.</span></h2>
+  </div>
+  <div class="list">
+    {faq.slice(0, limit).map((q) => (
+      <details>
+        <summary>{q.data.question}<span class="icon" aria-hidden="true"></span></summary>
+        <p set:html={linkify(q.data.answer)} />
+      </details>
+    ))}
+  </div>
+</section>
+
+<style>
+  .list { border-top: 1px solid var(--color-border); }
+  @media (min-width: 900px) { .list { margin-left: 25%; } }
+  details { border-bottom: 1px solid var(--color-border); }
+  summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: var(--space-6); padding-block: var(--space-6); font-size: var(--text-lg); letter-spacing: var(--tracking-tight); }
+  summary::-webkit-details-marker { display: none; }
+  .icon { position: relative; width: 14px; height: 14px; flex: none; margin-top: 0.4em; }
+  .icon::before, .icon::after { content: ''; position: absolute; inset: 6px 0 auto; height: 2px; background: currentColor; transition: transform var(--duration) var(--ease-out); }
+  .icon::after { transform: rotate(90deg); }
+  details[open] .icon::after { transform: rotate(0); }
+  details p { padding-bottom: var(--space-6); color: var(--color-text-muted); max-width: 60ch; }
+  details[open] summary { color: var(--color-text); }
+</style>

@@ -1,28 +1,36 @@
 ---
-// Temporary content inventory page: proves every collection loads.
-// Not a design. The real structure gets built here once it's chosen.
+// Home page: offer-led, proof-heavy. Sections read top to bottom:
+// promise → proof (work, logos, track record) → offer → how to start → about → FAQ → contact.
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
-import { getProjects, getServices, getClients, getLogos, getArchive, getFaq } from '@/lib/content';
-import { site } from '@/site.config';
+import Header from '@/components/Header.astro';
+import Hero from '@/components/Hero.astro';
+import LogoWall from '@/components/LogoWall.astro';
+import Work from '@/components/Work.astro';
+import TrackRecord from '@/components/TrackRecord.astro';
+import Offer from '@/components/Offer.astro';
+import Process from '@/components/Process.astro';
+import About from '@/components/About.astro';
+import Faq from '@/components/Faq.astro';
+import Footer from '@/components/Footer.astro';
+import { getEntry } from 'astro:content';
+import { getFeaturedProjects, getServices, getClients, getLogos, getFaq } from '@/lib/content';
 
-const [projects, services, clients, logos, archive, faq, pages] = await Promise.all([
-  getProjects(), getServices(), getClients(), getLogos(), getArchive(), getFaq(), getCollection('pages'),
+const [projects, services, clients, logos, faq] = await Promise.all([
+  getFeaturedProjects(), getServices(), getClients(), getLogos(), getFaq(),
 ]);
+const offer = (await getEntry('pages', 'offer'))!;
+const about = (await getEntry('pages', 'about'))!;
 ---
 
-<BaseLayout noindex>
-  <section class="section container stack">
-    <h1>{site.tagline}</h1>
-    <p>Content inventory. Structure and design come next.</p>
-    <ul>
-      <li>Case studies: {projects.map((p) => p.data.title).join(', ')}</li>
-      <li>Services: {services.map((s) => `${s.data.title} (from ${s.data.priceFrom})`).join(', ')}</li>
-      <li>Page copy: {pages.map((p) => p.data.title).join(', ')}</li>
-      <li>Track record: {clients.length} clients</li>
-      <li>Logo wall: {logos.length} marks</li>
-      <li>Archive: {archive.length} items</li>
-      <li>FAQ: {faq.length} questions</li>
-    </ul>
-  </section>
+<BaseLayout>
+  <Header slot="header" />
+  <Hero projects={projects} />
+  <LogoWall logos={logos} />
+  <Work projects={projects} />
+  <TrackRecord clients={clients} />
+  <Offer service={services[0]!} intro={offer} />
+  <Process offer={offer} />
+  <About about={about} />
+  <Faq faq={faq} />
+  <Footer slot="footer" />
 </BaseLayout>

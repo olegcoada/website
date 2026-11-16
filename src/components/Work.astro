@@ -1,0 +1,98 @@
+---
+import Media from './Media.astro';
+import { render, type CollectionEntry } from 'astro:content';
+
+interface Props { projects: CollectionEntry<'projects'>[] }
+const { projects } = Astro.props;
+const items = await Promise.all(projects.map(async (p) => ({ p, Content: (await render(p)).Content })));
+---
+
+<section class="section" id="work">
+  <div class="container">
+    <div class="section-head">
+      <p class="label">Selected work</p>
+      <h2>Recent work for companies selling into <span class="serif">serious markets.</span></h2>
+    </div>
+
+    {items.map(({ p, Content }, i) => {
+      const g = p.data.gallery;
+      const [lead, ...rest] = g;
+      const side = rest.slice(0, 4);
+      return (
+        <article class="case" id={p.id}>
+          <header class="case__head">
+            <span class="label case__no">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="case__title">{p.data.title}</h3>
+            <p class="label case__meta">{p.data.discipline} · {p.data.industry}</p>
+          </header>
+
+          <div class="case__grid">
+            <figure class="case__lead">
+              <Media {...lead} width={1600} />
+              <figcaption class="label">{lead.caption}</figcaption>
+            </figure>
+            <div class="case__side">
+              {side.map((m) => (
+                <figure>
+                  <Media {...m} width={800} />
+                  <figcaption class="label">{m.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+
+          <div class="case__body">
+            <div class="case__aside">
+              <p class="case__summary">{p.data.summary}</p>
+              {p.data.highlights.length > 0 && (
+                <ul class="case__highlights">{p.data.highlights.map((h) => <li>{h}</li>)}</ul>
+              )}
+            </div>
+            <div class="case__story"><Content /></div>
+          </div>
+
+          {p.data.testimonial && (
+            <blockquote class="quote">
+              <p>“{p.data.testimonial.quote}”</p>
+              <footer class="label">{p.data.testimonial.author}{p.data.testimonial.role && p.data.testimonial.role !== p.data.client ? `, ${p.data.testimonial.role}` : `, ${p.data.client}`}</footer>
+            </blockquote>
+          )}
+        </article>
+      );
+    })}
+  </div>
+</section>
+
+<style>
+  .case { padding-block: var(--space-16); border-top: 1px solid var(--color-border); }
+  .case:first-of-type { border-top: 0; padding-top: 0; }
+  .case__head { display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: var(--space-2) var(--space-6); margin-bottom: var(--space-8); }
+  .case__title { font-size: var(--text-4xl); letter-spacing: var(--tracking-tighter); }
+  .case__meta { grid-column: 2; }
+  @media (min-width: 900px) {
+    .case__head { grid-template-columns: 1fr 3fr auto; }
+    .case__meta { grid-column: auto; }
+  }
+  .case__grid { display: grid; gap: var(--space-3); }
+  @media (min-width: 900px) { .case__grid { grid-template-columns: 2fr 1fr; } }
+  .case__side { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+  figure { margin: 0; display: grid; gap: var(--space-2); align-content: start; }
+  figure :global(img), figure :global(video) { width: 100%; object-fit: cover; border-radius: var(--radius-sm); background: var(--color-surface); }
+  .case__lead :global(img), .case__lead :global(video) { aspect-ratio: 4 / 3; height: 100%; }
+  .case__lead { grid-template-rows: 1fr auto; }
+  .case__side :global(img), .case__side :global(video) { aspect-ratio: 1; }
+  figcaption { font-size: 0.625rem; }
+
+  .case__body { display: grid; gap: var(--space-8); margin-top: var(--space-12); }
+  @media (min-width: 900px) { .case__body { grid-template-columns: 1fr 1fr; gap: var(--space-16); } }
+  .case__summary { font-size: var(--text-xl); line-height: var(--leading-snug); letter-spacing: var(--tracking-tight); }
+  .case__highlights { list-style: none; padding: 0; margin-top: var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .case__highlights li { font-size: var(--text-xs); padding: 0.4em 0.9em; border: 1px solid var(--color-border); border-radius: 999px; }
+  .case__story { color: var(--color-text-muted); max-width: 60ch; }
+  .case__story :global(p + p) { margin-top: var(--space-4); }
+
+  .quote { margin: var(--space-12) 0 0; padding: var(--space-8); background: var(--color-surface); border-radius: var(--radius-md); }
+  .quote p { font-family: var(--font-serif); font-size: var(--text-xl); line-height: 1.35; max-width: 52ch; }
+  .quote footer { margin-top: var(--space-6); }
+  @media (min-width: 900px) { .quote { margin-left: 25%; padding: var(--space-12); } }
+</style>

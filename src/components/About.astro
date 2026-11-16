@@ -1,0 +1,27 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import { site } from '@/site.config';
+interface Props { about: CollectionEntry<'pages'> }
+const { Content } = await render(Astro.props.about);
+---
+
+<section class="section container" id="about" aria-labelledby="about-title">
+  <div class="section-head">
+    <p class="label" id="about-title">About</p>
+    <div class="about"><Content /></div>
+  </div>
+  <dl class="facts">
+    <div><dt class="label">Based in</dt><dd>{site.location}</dd></div>
+    <div><dt class="label">Working hours</dt><dd>Europe + US mornings</dd></div>
+    <div><dt class="label">You work with</dt><dd>Oleg, directly</dd></div>
+    <div><dt class="label">Delivered in</dt><dd>Figma</dd></div>
+  </dl>
+</section>
+
+<style>
+  .about { font-size: var(--text-2xl); line-height: 1.25; letter-spacing: var(--tracking-tight); max-width: 30ch; }
+  .about :global(p + p) { margin-top: var(--space-6); font-size: var(--text-lg); line-height: var(--leading-normal); color: var(--color-text-muted); max-width: 52ch; }
+  .facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
+  @media (min-width: 900px) { .facts { grid-template-columns: 1fr repeat(4, 1fr); } .facts > :first-child { grid-column: 2; } }
+  .facts dd { margin: var(--space-2) 0 0; }
+</style>

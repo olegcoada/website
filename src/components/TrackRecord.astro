@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props { clients: CollectionEntry<'clients'>[] }
+const { clients } = Astro.props;
+---
+
+<section class="section container" aria-labelledby="tr-title">
+  <div class="section-head">
+    <p class="label">Track record</p>
+    <h2 id="tr-title">Teams that trusted the brand to <span class="serif">carry the raise.</span></h2>
+  </div>
+  <ol class="rows">
+    {clients.map((c) => (
+      <li><span class="name">{c.data.name}</span><span class="line">{c.data.line}</span></li>
+    ))}
+  </ol>
+</section>
+
+<style>
+  .rows { list-style: none; padding: 0; border-top: 1px solid var(--color-border); }
+  .rows li { display: grid; gap: var(--space-1) var(--space-8); padding-block: var(--space-6); border-bottom: 1px solid var(--color-border); }
+  @media (min-width: 900px) { .rows li { grid-template-columns: 1fr 3fr; align-items: baseline; } }
+  .name { font-size: var(--text-xl); letter-spacing: var(--tracking-tight); font-weight: var(--weight-medium); }
+  .line { color: var(--color-text-muted); }
+</style>

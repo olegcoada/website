@@ -1,0 +1,60 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+interface Props { service: CollectionEntry<'services'>; intro: CollectionEntry<'pages'> }
+const { service, intro } = Astro.props;
+const { Content: Note } = await render(service);
+const { Content: Intro } = await render(intro);
+const s = service.data;
+---
+
+<section class="offer" id="offer">
+  <div class="container">
+    <div class="section-head">
+      <p class="label">Offer</p>
+      <div class="intro"><Intro /></div>
+    </div>
+
+    <div class="card">
+      <div class="card__main">
+        <p class="label">One offer</p>
+        <h2 class="card__title">{s.title}</h2>
+        <p class="card__summary">{s.summary}</p>
+        <dl class="facts">
+          <div><dt class="label">Investment</dt><dd>From {s.priceFrom}</dd></div>
+          <div><dt class="label">Timeline</dt><dd>{s.timeline}</dd></div>
+        </dl>
+        <ul class="terms">{s.terms.map((t) => <li>{t}</li>)}</ul>
+      </div>
+      <div class="card__list">
+        <p class="label">What’s included</p>
+        <ol>{s.deliverables.map((d) => <li>{d}</li>)}</ol>
+        <p class="outcome">{s.outcome}</p>
+        <div class="note"><Note /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .offer { background: var(--color-ink-panel); color: var(--color-text-inverse); padding-block: var(--space-24); }
+  .offer .label { color: var(--color-text-inverse-muted); }
+  .offer .section-head { border-color: var(--color-border-inverse); }
+  .intro { font-size: var(--text-xl); line-height: var(--leading-snug); letter-spacing: var(--tracking-tight); max-width: 40ch; }
+  .intro :global(p + p) { margin-top: var(--space-4); }
+  .intro :global(p:nth-child(n + 2)) { color: var(--color-text-inverse-muted); }
+  .intro :global(p:nth-child(4)) { color: var(--color-text-inverse); }
+
+  .card { display: grid; gap: var(--space-12); border-top: 1px solid var(--color-border-inverse); padding-top: var(--space-12); }
+  @media (min-width: 900px) { .card { grid-template-columns: 1fr 1fr; gap: var(--space-16); } }
+  .card__title { font-size: var(--text-4xl); letter-spacing: var(--tracking-tighter); margin-top: var(--space-4); }
+  .card__summary { margin-top: var(--space-4); color: var(--color-text-inverse-muted); max-width: 36ch; }
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); margin-top: var(--space-12); }
+  .facts dd { margin: var(--space-2) 0 0; font-size: var(--text-2xl); letter-spacing: var(--tracking-tight); }
+  .terms { list-style: none; padding: 0; margin-top: var(--space-12); display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .terms li { font-size: var(--text-xs); padding: 0.45em 0.9em; border: 1px solid var(--color-border-inverse); border-radius: 999px; }
+  .card__list ol { counter-reset: d; list-style: none; padding: 0; margin-top: var(--space-4); border-top: 1px solid var(--color-border-inverse); }
+  .card__list li { counter-increment: d; display: flex; gap: var(--space-4); padding-block: var(--space-3); border-bottom: 1px solid var(--color-border-inverse); }
+  .card__list li::before { content: counter(d, decimal-leading-zero); font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent); padding-top: 0.25em; }
+  .outcome { margin-top: var(--space-8); }
+  .note { margin-top: var(--space-4); color: var(--color-text-inverse-muted); font-size: var(--text-sm); }
+</style>

@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props { logos: CollectionEntry<'logos'>[] }
+const { logos } = Astro.props;
+---
+
+<section class="logos" aria-labelledby="logos-title">
+  <div class="container">
+    <p class="label" id="logos-title">Selected marks ({logos.length}) · AI, finance, insurance, government and more</p>
+  </div>
+  <div class="marquee" role="list">
+    {[0, 1].map((copy) => (
+      <div class="marquee__track" aria-hidden={copy === 1 ? 'true' : undefined}>
+        {logos.map((l) => (
+          <figure class="mark" role="listitem">
+            <img src={l.data.mono.src} alt={copy === 0 ? l.data.mono.alt : ''} loading="lazy" />
+            <figcaption class="label">{l.data.name}<br /><span>{l.data.industry}</span></figcaption>
+          </figure>
+        ))}
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .logos { padding-block: var(--space-12); border-block: 1px solid var(--color-border); overflow: hidden; }
+  .marquee { display: flex; width: max-content; margin-top: var(--space-8); animation: scroll 80s linear infinite; }
+  .marquee:hover { animation-play-state: paused; }
+  .marquee__track { display: flex; gap: var(--space-12); padding-right: var(--space-12); }
+  .mark { display: grid; justify-items: center; gap: var(--space-3); width: 7rem; margin: 0; }
+  .mark img { width: 3.5rem; height: 3.5rem; object-fit: contain; }
+  .mark figcaption { text-align: center; font-size: 0.625rem; line-height: 1.4; }
+  .mark figcaption span { opacity: 0.6; }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee { animation: none; width: auto; }
+    .marquee__track { flex-wrap: wrap; justify-content: center; padding-inline: var(--gutter); }
+    .marquee__track[aria-hidden] { display: none; }
+  }
+</style>
