@@ -1,0 +1,31 @@
+---
+// Every page wraps itself in this layout. It owns <html>, <head> and global CSS,
+// and leaves the page body completely open so any site structure fits.
+import Seo from '@/components/Seo.astro';
+import type { Props as SeoProps } from '@/components/Seo.astro';
+import '@/styles/global.css';
+
+export type Props = SeoProps;
+const seo = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="generator" content={Astro.generator} />
+    <Seo {...seo} />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot name="header" />
+    <main id="main">
+      <slot />
+    </main>
+    <slot name="footer" />
+  </body>
+</html>

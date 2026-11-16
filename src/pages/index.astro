@@ -1,0 +1,22 @@
+---
+// Temporary home page: proves the layout, SEO and collections are wired up.
+// The real structure gets built here once it's chosen.
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getProjects, getServices } from '@/lib/content';
+
+const projects = await getProjects();
+const services = await getServices();
+---
+
+<BaseLayout>
+  <section class="section container stack">
+    <h1>Oleg Coada</h1>
+    <p>New site foundation. Structure and design come next.</p>
+  </section>
+  <section class="section container stack">
+    <h2>Case studies ({projects.length})</h2>
+    <ul>{projects.map((p) => <li>{p.data.title} — {p.data.client}</li>)}</ul>
+    <h2>Services ({services.length})</h2>
+    <ul>{services.map((s) => <li>{s.data.title}</li>)}</ul>
+  </section>
+</BaseLayout>
