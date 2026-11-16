@@ -27,7 +27,7 @@ const { logos } = Astro.props;
   .marquee { display: flex; width: max-content; margin-top: var(--space-8); animation: scroll 80s linear infinite; }
   .marquee:hover { animation-play-state: paused; }
   .marquee__track { display: flex; gap: var(--space-12); padding-right: var(--space-12); }
-  .mark { display: grid; justify-items: center; gap: var(--space-3); width: 7rem; margin: 0; }
+  .mark { display: grid; justify-items: center; align-content: start; gap: var(--space-3); width: 7rem; margin: 0; }
   .mark img { width: 3.5rem; height: 3.5rem; object-fit: contain; }
   .mark figcaption { text-align: center; font-size: 0.625rem; line-height: 1.4; }
   .mark figcaption span { opacity: 0.6; }

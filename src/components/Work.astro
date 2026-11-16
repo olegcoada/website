@@ -75,7 +75,7 @@ const items = await Promise.all(projects.map(async (p) => ({ p, Content: (await 
   }
   .case__grid { display: grid; gap: var(--space-3); }
   @media (min-width: 900px) { .case__grid { grid-template-columns: 2fr 1fr; } }
-  .case__side { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+  .case__side { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); align-content: start; }
   figure { margin: 0; display: grid; gap: var(--space-2); align-content: start; }
   figure :global(img), figure :global(video) { width: 100%; object-fit: cover; border-radius: var(--radius-sm); background: var(--color-surface); }
   .case__lead :global(img), .case__lead :global(video) { aspect-ratio: 4 / 3; height: 100%; }
